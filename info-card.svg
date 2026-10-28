@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="270" viewBox="0 0 460 270">
+<rect width="100%" height="100%" rx="12" fill="#0d1117" stroke="#30363d"/>
+<rect x="1" y="1" width="458" height="35" rx="11" fill="#161b22"/>
+<circle cx="18" cy="18" r="5" fill="#ff5f56"/>
+<circle cx="36" cy="18" r="5" fill="#ffbd2e"/>
+<circle cx="54" cy="18" r="5" fill="#27c93f"/>
+<text x="72" y="23" font-family="monospace" font-size="12" fill="#8b949e">developer-profile</text>
+<text x="22" y="70" font-family="monospace" font-size="20" font-weight="bold" fill="#58a6ff">Priyanshu Panda</text>
+<g opacity="0"><set attributeName="opacity" to="1" begin="0.4s"/><text x="22" y="110" font-family="monospace" font-size="12" fill="#7ee787">ROLE</text><text x="115" y="110" font-family="monospace" font-size="12" fill="#c9d1d9">B.Tech Student</text></g>
+<g opacity="0"><set attributeName="opacity" to="1" begin="0.8s"/><text x="22" y="139" font-family="monospace" font-size="12" fill="#7ee787">FOCUS</text><text x="115" y="139" font-family="monospace" font-size="12" fill="#c9d1d9">Software Development</text></g>
+<g opacity="0"><set attributeName="opacity" to="1" begin="1.2s"/><text x="22" y="168" font-family="monospace" font-size="12" fill="#7ee787">STACK</text><text x="115" y="168" font-family="monospace" font-size="12" fill="#c9d1d9">Python | C | C++</text></g>
+<g opacity="0"><set attributeName="opacity" to="1" begin="1.6s"/><text x="22" y="197" font-family="monospace" font-size="12" fill="#7ee787">GOAL</text><text x="115" y="197" font-family="monospace" font-size="12" fill="#c9d1d9">Build cool projects</text></g>
+<g opacity="0"><set attributeName="opacity" to="1" begin="2.0s"/><text x="22" y="226" font-family="monospace" font-size="12" fill="#7ee787">STATUS</text><text x="115" y="226" font-family="monospace" font-size="12" fill="#c9d1d9">Always Learning</text></g>
+<text x="22" y="252" font-family="monospace" font-size="11" fill="#8b949e">priyanshu@github:~$ <tspan fill="#7ee787">ready</tspan><tspan fill="#58a6ff">_</tspan></text>
+</svg>

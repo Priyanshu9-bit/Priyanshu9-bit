@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="320" height="240"
+     viewBox="0 0 320 240">
+
+  <rect width="100%" height="100%" rx="12"
+        fill="#0d1117" stroke="#30363d"/>
+
+  <text x="15" y="23"
+        font-family="monospace" font-size="12"
+        fill="#7ee787">
+    priyanshu@github:~$ whoami
+  </text>
+
+  <style>
+    .art {
+      font-family: monospace;
+      font-size: 14px;
+      fill: #c9d1d9;
+      white-space: pre;
+    }
+  </style>
+
+  <text x="20" y="45" class="art"><set attributeName="opacity" to="0" begin="0s"/><set attributeName="opacity" to="1" begin="0.3s"/>       .--------.</text><text x="20" y="62" class="art"><set attributeName="opacity" to="0" begin="0s"/><set attributeName="opacity" to="1" begin="0.7s"/>      /  o    o  \</text><text x="20" y="79" class="art"><set attributeName="opacity" to="0" begin="0s"/><set attributeName="opacity" to="1" begin="1.1s"/>     |     ^      |</text><text x="20" y="96" class="art"><set attributeName="opacity" to="0" begin="0s"/><set attributeName="opacity" to="1" begin="1.5s"/>     |   \____/   |</text><text x="20" y="113" class="art"><set attributeName="opacity" to="0" begin="0s"/><set attributeName="opacity" to="1" begin="1.9s"/>      \__________/</text><text x="20" y="130" class="art"><set attributeName="opacity" to="0" begin="0s"/><set attributeName="opacity" to="1" begin="2.3s"/>         |    |</text><text x="20" y="147" class="art"><set attributeName="opacity" to="0" begin="0s"/><set attributeName="opacity" to="1" begin="2.7s"/>        /|    |\</text><text x="20" y="164" class="art"><set attributeName="opacity" to="0" begin="0s"/><set attributeName="opacity" to="1" begin="3.1s"/>       /_|____|_\</text>
+
+  <text x="20" y="190"
+        font-family="monospace" font-size="11"
+        fill="#58a6ff">
+    &gt; Priyanshu Panda
+  </text>
+
+  <text x="20" y="205"
+        font-family="monospace" font-size="11"
+        fill="#c9d1d9">
+    &gt; B.Tech Student
+  </text>
+
+  <text x="20" y="220"
+        font-family="monospace" font-size="11"
+        fill="#7ee787">
+    &gt; Aspiring Developer_
+  </text>
+
+</svg>

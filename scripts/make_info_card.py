@@ -9,7 +9,7 @@ NAME = "Priyanshu Panda"
 DETAILS = [
     ("ROLE", "B.Tech Student"),
     ("FOCUS", "Software Development"),
-    ("STACK", "Python | C | C++"),
+    ("STACK", "Python | CSS | HTML"),
     ("GOAL", "Build cool projects"),
     ("STATUS", "Always Learning"),
 ]

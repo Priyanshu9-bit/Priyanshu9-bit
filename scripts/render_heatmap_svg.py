@@ -212,7 +212,8 @@ for row, col, ds, d, cnt, lvl in blocks:
             )
 
     rendered_blocks.append(
-        f'<g class="pillar" opacity="0"{glow_filter}>'
+        f'<g class="pillar"{glow_filter}>'
+        f'<set attributeName="opacity" to="0" begin="0s"/>'
         f'<set attributeName="opacity" to="1" begin="{delay:.3f}s"/>'
         f'<title>{count_str} on {day_name}, {formatted_date}</title>'
         f'<polygon points="{left_poly}" fill="{cfg["left"]}"/>'
@@ -425,6 +426,8 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
   </g>
 </svg>'''
 
-out_path = ROOT / "contrib-heatmap.svg"
-out_path.write_text(svg, encoding="utf-8")
-print(f"Wrote 3D Isometric Skyline to {out_path} ({len(svg):,} bytes)")
+out_path1 = ROOT / "contrib-heatmap.svg"
+out_path2 = ROOT / "skyline-heatmap.svg"
+out_path1.write_text(svg, encoding="utf-8")
+out_path2.write_text(svg, encoding="utf-8")
+print(f"Wrote 3D Isometric Skyline to {out_path1.name} and {out_path2.name} ({len(svg):,} bytes)")

@@ -7,7 +7,7 @@
 </p>
 
 <img
-  src="./contrib-heatmap.svg"
+  src="./skyline-heatmap.svg"
   width="860"
   alt="GitHub 3D contribution skyline"
 />

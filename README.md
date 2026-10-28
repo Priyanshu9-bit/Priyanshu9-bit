@@ -3,13 +3,13 @@
 <h2>Welcome to My GitHub Profile 👋</h2>
 
 <p>
-  <code>priyanshu@github:~$ ./contributions.sh</code>
+  <code>priyanshu@github:~$ ./skyline.sh --theme=sunset-fire</code>
 </p>
 
 <img
   src="./contrib-heatmap.svg"
   width="860"
-  alt="GitHub contribution heatmap"
+  alt="GitHub 3D contribution skyline"
 />
 
 <br><br>

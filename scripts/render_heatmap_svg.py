@@ -16,46 +16,46 @@ if not days:
 by_date = {d["date"]: d for d in days}
 dates = sorted(by_date)[-371:]
 
-# Color theme: Sunset Fire
-# (Deep Indigo base, Coral Rose, Radiant Hot Pink, Sunset Flame Orange, Amber Gold Sunlight Beacon)
+# Color theme: Cyberpunk Cyan & Electric Blue
+# Harmonizes with developer info card and ASCII portrait
 THEME = {
     0: {
-        "top": "#171932",
-        "left": "#0e1022",
-        "right": "#13152a",
-        "stroke": "#272a4c",
+        "top": "#111827",    # Dark Obsidian Slate
+        "left": "#090d16",
+        "right": "#0d1322",
+        "stroke": "#1e293b",
         "glow": False,
         "base_h": 3.5,
     },
     1: {
-        "top": "#f43f5e",    # Coral Rose
-        "left": "#9f1239",   # Deep Coral
-        "right": "#be123c",  # Rich Coral
-        "stroke": "#fda4af",
+        "top": "#0284c7",    # Ocean Cobalt Blue
+        "left": "#0369a1",
+        "right": "#075985",
+        "stroke": "#38bdf8",
         "glow": False,
         "base_h": 14,
     },
     2: {
-        "top": "#fb7185",    # Hot Pink
-        "left": "#9d174d",   # Deep Magenta
-        "right": "#db2777",  # Bright Magenta
-        "stroke": "#fecdd3",
+        "top": "#0ea5e9",    # Vivid Cyan
+        "left": "#0284c7",
+        "right": "#0369a1",
+        "stroke": "#7dd3fc",
         "glow": False,
         "base_h": 24,
     },
     3: {
-        "top": "#f97316",    # Sunset Fire Orange
-        "left": "#9a3412",   # Dark Terracotta
-        "right": "#c2410c",  # Vivid Amber-Red
-        "stroke": "#fdba74",
+        "top": "#38bdf8",    # Electric Sky Cyan
+        "left": "#0ea5e9",
+        "right": "#0284c7",
+        "stroke": "#bae6fd",
         "glow": True,
         "base_h": 36,
     },
     4: {
-        "top": "#fbbf24",    # Radiant Amber Gold
-        "left": "#b45309",   # Warm Bronze
-        "right": "#d97706",  # Deep Gold
-        "stroke": "#fef08a", # Sunlight Highlight
+        "top": "#e0f2fe",    # Radiant Ice-White Beacon
+        "left": "#38bdf8",
+        "right": "#0ea5e9",
+        "stroke": "#ffffff", # Pure White Neon Edge
         "glow": True,
         "base_h": 50,
     },
@@ -114,7 +114,7 @@ for ds in dates:
         mx = x0 + col * dx_col
         months.append(
             f'<text x="{mx:.1f}" y="112" font-family="ui-monospace, monospace" font-size="10" '
-            f'font-weight="600" fill="#a5b4fc" opacity="0.85">{d.strftime("%b")}</text>'
+            f'font-weight="600" fill="#7dd3fc" opacity="0.85">{d.strftime("%b")}</text>'
         )
 
 # Day labels along isometric axis (Mon, Wed, Fri)
@@ -125,7 +125,7 @@ for r_idx, label in days_map.items():
     ly = y0 + r_idx * dy_row + 4
     day_labels.append(
         f'<text x="{lx:.1f}" y="{ly:.1f}" font-family="ui-monospace, monospace" font-size="9" '
-        f'font-weight="600" fill="#71789e">{label}</text>'
+        f'font-weight="600" fill="#64748b">{label}</text>'
     )
 
 # Prepare blocks for Painter's Algorithm sorting (row ascending, col ascending)
@@ -185,8 +185,8 @@ for row, col, ds, d, cnt, lvl in blocks:
     day_name = d.strftime("%A")
     formatted_date = d.strftime("%b %d, %Y")
     delay = 0.05 + col * 0.012 + row * 0.025
-    stroke_attr = f'stroke="{cfg["stroke"]}" stroke-width="0.5"' if lvl > 0 else 'stroke="#242846" stroke-width="0.4"'
-    glow_filter = ' filter="url(#sunset-beacon)"' if (cfg["glow"] and cnt >= 8) else ''
+    stroke_attr = f'stroke="{cfg["stroke"]}" stroke-width="0.5"' if lvl > 0 else 'stroke="#1e293b" stroke-width="0.4"'
+    glow_filter = ' filter="url(#cyan-beacon)"' if (cfg["glow"] and cnt >= 8) else ''
 
     # Skyscraper architectural window accents for tall towers
     windows_svg = ""
@@ -195,20 +195,20 @@ for row, col, ds, d, cnt, lvl in blocks:
         windows_svg = (
             f'<line x1="{cx - half_w*0.75:.1f}" y1="{w_y:.1f}" '
             f'x2="{cx - 0.8:.1f}" y2="{w_y + half_d*0.75:.1f}" '
-            f'stroke="#ffffff" stroke-opacity="0.4" stroke-width="0.7"/>'
+            f'stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.7"/>'
             f'<line x1="{cx + 0.8:.1f}" y1="{w_y + half_d*0.75:.1f}" '
             f'x2="{cx + half_w*0.75:.1f}" y2="{w_y:.1f}" '
-            f'stroke="#ffffff" stroke-opacity="0.3" stroke-width="0.7"/>'
+            f'stroke="#ffffff" stroke-opacity="0.4" stroke-width="0.7"/>'
         )
         if h >= 40:
             w_y2 = cy - h + 24
             windows_svg += (
                 f'<line x1="{cx - half_w*0.75:.1f}" y1="{w_y2:.1f}" '
                 f'x2="{cx - 0.8:.1f}" y2="{w_y2 + half_d*0.75:.1f}" '
-                f'stroke="#ffffff" stroke-opacity="0.4" stroke-width="0.7"/>'
+                f'stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.7"/>'
                 f'<line x1="{cx + 0.8:.1f}" y1="{w_y2 + half_d*0.75:.1f}" '
                 f'x2="{cx + half_w*0.75:.1f}" y2="{w_y2:.1f}" '
-                f'stroke="#ffffff" stroke-opacity="0.3" stroke-width="0.7"/>'
+                f'stroke="#ffffff" stroke-opacity="0.4" stroke-width="0.7"/>'
             )
 
     rendered_blocks.append(
@@ -270,27 +270,27 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
   <defs>
     <!-- Background Gradient -->
     <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#090a15"/>
-      <stop offset="50%" stop-color="#111026"/>
-      <stop offset="100%" stop-color="#080812"/>
+      <stop offset="0%" stop-color="#080b12"/>
+      <stop offset="50%" stop-color="#0d1422"/>
+      <stop offset="100%" stop-color="#070a10"/>
     </linearGradient>
 
-    <!-- Top Glow Line -->
-    <linearGradient id="sunset-line" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f43f5e"/>
-      <stop offset="35%" stop-color="#fb7185"/>
-      <stop offset="70%" stop-color="#f97316"/>
-      <stop offset="100%" stop-color="#fbbf24"/>
+    <!-- Top Neon Accent Strip -->
+    <linearGradient id="cyan-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="35%" stop-color="#0ea5e9"/>
+      <stop offset="70%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#a5f3fc"/>
     </linearGradient>
 
     <!-- Pill Stat Badges Background -->
     <linearGradient id="pill-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e1b38" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#121324" stop-opacity="0.9"/>
+      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#090e17" stop-opacity="0.95"/>
     </linearGradient>
 
     <!-- Peak Glow Filter -->
-    <filter id="sunset-beacon" x="-50%" y="-50%" width="200%" height="200%">
+    <filter id="cyan-beacon" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="3.5" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
@@ -310,13 +310,13 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
       .terminal-title {{
         font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
         font-size: 11px;
-        fill: #fdba74;
+        fill: #38bdf8;
       }}
       .stat-label {{
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         font-size: 9px;
         font-weight: 500;
-        fill: #9499c3;
+        fill: #94a3b8;
         letter-spacing: 0.5px;
         text-transform: uppercase;
       }}
@@ -329,7 +329,7 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
       .footer-text {{
         font-family: ui-monospace, SFMono-Regular, monospace;
         font-size: 10px;
-        fill: #787e9e;
+        fill: #64748b;
       }}
       .pulse-dot {{
         animation: pulse 2s infinite ease-in-out;
@@ -342,14 +342,14 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
   </defs>
 
   <!-- Card Frame -->
-  <rect width="100%" height="100%" rx="14" fill="url(#bg-grad)" stroke="#2a254c" stroke-width="1.2"/>
+  <rect width="100%" height="100%" rx="14" fill="url(#bg-grad)" stroke="#1e293b" stroke-width="1.2"/>
 
-  <!-- Top Accent Neon Sunset Strip -->
-  <rect x="1" y="1" width="{W - 2}" height="2.5" rx="1.2" fill="url(#sunset-line)"/>
+  <!-- Top Accent Neon Cyan Strip -->
+  <rect x="1" y="1" width="{W - 2}" height="2.5" rx="1.2" fill="url(#cyan-line)"/>
 
   <!-- Window Header Bar -->
-  <rect x="1" y="3.5" width="{W - 2}" height="32" fill="#131326" fill-opacity="0.6"/>
-  <line x1="1" y1="36" x2="{W - 1}" y2="36" stroke="#23213d" stroke-width="1"/>
+  <rect x="1" y="3.5" width="{W - 2}" height="32" fill="#0f172a" fill-opacity="0.6"/>
+  <line x1="1" y1="36" x2="{W - 1}" y2="36" stroke="#1e293b" stroke-width="1"/>
 
   <!-- Window Control Dots -->
   <circle cx="20" cy="19" r="4.5" fill="#ff5f56"/>
@@ -357,44 +357,44 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
   <circle cx="48" cy="19" r="4.5" fill="#27c93f"/>
 
   <!-- Terminal Command Title -->
-  <text x="68" y="23" class="terminal-title">{html.escape(user_handle)}@skyline:~$ <tspan fill="#f43f5e">./skyline</tspan> <tspan fill="#fbbf24">--theme=sunset-fire</tspan> <tspan fill="#71789e">--3d-isometric</tspan></text>
+  <text x="68" y="23" class="terminal-title">{html.escape(user_handle)}@skyline:~$ <tspan fill="#38bdf8">./skyline</tspan> <tspan fill="#58a6ff">--theme=cyberpunk-cyan</tspan> <tspan fill="#64748b">--3d-isometric</tspan></text>
 
   <!-- Live Activity Indicator Pill -->
-  <rect x="{W - 142}" y="10" width="124" height="18" rx="9" fill="#1b1c36" stroke="#f43f5e" stroke-width="0.8" stroke-opacity="0.5"/>
-  <circle cx="{W - 130}" cy="19" r="3.5" fill="#f43f5e" class="pulse-dot" filter="url(#soft-glow)"/>
-  <text x="{W - 120}" y="22" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#fecdd3" letter-spacing="0.5">3D SKYLINE ACTIVE</text>
+  <rect x="{W - 142}" y="10" width="124" height="18" rx="9" fill="#0f172a" stroke="#0284c7" stroke-width="0.8" stroke-opacity="0.6"/>
+  <circle cx="{W - 130}" cy="19" r="3.5" fill="#38bdf8" class="pulse-dot" filter="url(#soft-glow)"/>
+  <text x="{W - 120}" y="22" font-family="ui-monospace, monospace" font-size="9" font-weight="700" fill="#bae6fd" letter-spacing="0.5">3D SKYLINE ACTIVE</text>
 
   <!-- Metric Badges Row (4 Badges) -->
   <!-- Stat 1: Total Contributions -->
   <g transform="translate(48, 48)">
-    <rect width="170" height="42" rx="8" fill="url(#pill-grad)" stroke="#2f2b52" stroke-width="1"/>
-    <rect x="0" y="0" width="3" height="42" rx="1" fill="#f43f5e"/>
+    <rect width="170" height="42" rx="8" fill="url(#pill-grad)" stroke="#1e293b" stroke-width="1"/>
+    <rect x="0" y="0" width="3" height="42" rx="1" fill="#38bdf8"/>
     <text x="12" y="17" class="stat-label">Total Contributions</text>
-    <text x="12" y="34" class="stat-val">{total:,} <tspan font-size="10" font-weight="normal" fill="#a5b4fc">commits</tspan></text>
+    <text x="12" y="34" class="stat-val">{total:,} <tspan font-size="10" font-weight="normal" fill="#7dd3fc">commits</tspan></text>
   </g>
 
   <!-- Stat 2: Current Streak -->
   <g transform="translate(236, 48)">
-    <rect width="170" height="42" rx="8" fill="url(#pill-grad)" stroke="#2f2b52" stroke-width="1"/>
-    <rect x="0" y="0" width="3" height="42" rx="1" fill="#fb7185"/>
+    <rect width="170" height="42" rx="8" fill="url(#pill-grad)" stroke="#1e293b" stroke-width="1"/>
+    <rect x="0" y="0" width="3" height="42" rx="1" fill="#58a6ff"/>
     <text x="12" y="17" class="stat-label">Current Streak</text>
-    <text x="12" y="34" class="stat-val">{curr_streak} <tspan font-size="10" font-weight="normal" fill="#a5b4fc">day{'s' if curr_streak != 1 else ''}</tspan></text>
+    <text x="12" y="34" class="stat-val">{curr_streak} <tspan font-size="10" font-weight="normal" fill="#7dd3fc">day{'s' if curr_streak != 1 else ''}</tspan></text>
   </g>
 
   <!-- Stat 3: Longest Streak -->
   <g transform="translate(424, 48)">
-    <rect width="170" height="42" rx="8" fill="url(#pill-grad)" stroke="#2f2b52" stroke-width="1"/>
-    <rect x="0" y="0" width="3" height="42" rx="1" fill="#f97316"/>
+    <rect width="170" height="42" rx="8" fill="url(#pill-grad)" stroke="#1e293b" stroke-width="1"/>
+    <rect x="0" y="0" width="3" height="42" rx="1" fill="#818cf8"/>
     <text x="12" y="17" class="stat-label">Longest Streak</text>
-    <text x="12" y="34" class="stat-val">{max_streak} <tspan font-size="10" font-weight="normal" fill="#a5b4fc">days</tspan></text>
+    <text x="12" y="34" class="stat-val">{max_streak} <tspan font-size="10" font-weight="normal" fill="#7dd3fc">days</tspan></text>
   </g>
 
   <!-- Stat 4: Peak Activity Day -->
   <g transform="translate(612, 48)">
-    <rect width="170" height="42" rx="8" fill="url(#pill-grad)" stroke="#2f2b52" stroke-width="1"/>
-    <rect x="0" y="0" width="3" height="42" rx="1" fill="#fbbf24"/>
+    <rect width="170" height="42" rx="8" fill="url(#pill-grad)" stroke="#1e293b" stroke-width="1"/>
+    <rect x="0" y="0" width="3" height="42" rx="1" fill="#22d3ee"/>
     <text x="12" y="17" class="stat-label">Peak Intensity</text>
-    <text x="12" y="34" class="stat-val">{max_single_day} <tspan font-size="10" font-weight="normal" fill="#a5b4fc">commits/day</tspan></text>
+    <text x="12" y="34" class="stat-val">{max_single_day} <tspan font-size="10" font-weight="normal" fill="#7dd3fc">commits/day</tspan></text>
   </g>
 
   <!-- Months Header -->
@@ -413,16 +413,16 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
   </g>
 
   <!-- Card Footer -->
-  <line x1="20" y1="305" x2="{W - 20}" y2="305" stroke="#1d1e38" stroke-width="1"/>
+  <line x1="20" y1="305" x2="{W - 20}" y2="305" stroke="#1e293b" stroke-width="1"/>
 
   <text x="24" y="324" class="footer-text">{total:,} contributions in 2025–2026 · {active_days} active days</text>
-  <text x="24" y="337" font-family="ui-monospace, monospace" font-size="9" fill="#585e7a">Auto-synced daily via GitHub Actions · Sunset Fire 3D</text>
+  <text x="24" y="337" font-family="ui-monospace, monospace" font-size="9" fill="#475569">Auto-synced daily via GitHub Actions · Cyberpunk Cyan 3D</text>
 
   <!-- Mini Isometric Legend -->
   <g transform="translate(0, -6)">
-    <text x="648" y="334" font-family="ui-monospace, monospace" font-size="9" fill="#71789e">Less</text>
+    <text x="648" y="334" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">Less</text>
     {''.join(legend_blocks)}
-    <text x="778" y="334" font-family="ui-monospace, monospace" font-size="9" fill="#71789e">More</text>
+    <text x="778" y="334" font-family="ui-monospace, monospace" font-size="9" fill="#64748b">More</text>
   </g>
 </svg>'''
 
@@ -430,4 +430,4 @@ out_path1 = ROOT / "contrib-heatmap.svg"
 out_path2 = ROOT / "skyline-heatmap.svg"
 out_path1.write_text(svg, encoding="utf-8")
 out_path2.write_text(svg, encoding="utf-8")
-print(f"Wrote 3D Isometric Skyline to {out_path1.name} and {out_path2.name} ({len(svg):,} bytes)")
+print(f"Wrote Cyberpunk Cyan 3D Skyline to {out_path1.name} and {out_path2.name} ({len(svg):,} bytes)")

@@ -3,7 +3,7 @@
 <h2>Welcome to My GitHub Profile 👋</h2>
 
 <p>
-  <code>priyanshu@github:~$ ./skyline.sh --theme=sunset-fire</code>
+  <code>priyanshu@github:~$ ./skyline.sh --theme=cyberpunk-cyan</code>
 </p>
 
 <img
